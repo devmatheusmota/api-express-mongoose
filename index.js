@@ -2,17 +2,16 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-const { eventNames } = require('./models/Person');
 const app = express();
 require('dotenv').config();
 
 //config to read JSON
 
-app.use(
-	express.urlencoded({
-		extended: true,
-	})
-);
+// app.use(
+// 	express.urlencoded({
+// 		extended: true,
+// 	})
+// );
 
 app.use(express.json());
 

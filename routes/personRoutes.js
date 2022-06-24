@@ -1,6 +1,5 @@
 const router = require('express').Router();
 
-const { update } = require('../models/Person');
 const Person = require('../models/Person');
 
 //Create

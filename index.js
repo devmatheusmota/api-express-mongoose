@@ -7,12 +7,6 @@ require('dotenv').config();
 
 //config to read JSON
 
-// app.use(
-// 	express.urlencoded({
-// 		extended: true,
-// 	})
-// );
-
 app.use(express.json());
 
 //routes
@@ -24,7 +18,7 @@ app.get('/', (request, response) => {
 	response.json({ message: 'Hello World!' });
 });
 
-//deliver a port and connecting to DB
+//delivering a port and connecting to DB
 
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASSWORD;

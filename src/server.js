@@ -4,18 +4,30 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 require('dotenv').config();
+const { auth } = require('express-openid-connect');
+const config = {
+	authRequired: false,
+	auth0Logout: true,
+	secret: process.env.SECRET_STRING,
+	baseURL: process.env.BASEURL,
+	clientID: process.env.CLIENTID,
+	issuerBaseURL: process.env.ISSUERBASEURL,
+};
 
 //config to read JSON
-
+app.set('views', 'views');
+app.set('view engine', 'ejs');
 app.use(express.json());
+app.use(auth(config));
+
 
 //routes
-const personRoutes = require('./routes/personRoutes');
+const userRoutes = require('./routes/userRoutes');
 
-app.use('/person', personRoutes);
+app.use('/users', userRoutes);
 
 app.get('/', (request, response) => {
-	response.json({ message: 'Hello World!' });
+	response.render('index');
 });
 
 //delivering a port and connecting to DB

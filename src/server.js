@@ -33,7 +33,7 @@ app.get('/', (request, response) => {
 
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASSWORD;
-const connectString = `mongodb://${DB_USER}:${DB_PASSWORD}@docdb-2022-10-31-14-43-38.cluster-cpnsiy7hsa9v.sa-east-1.docdb.amazonaws.com:27017/?ssl=true&ssl_ca_certs=rds-combined-ca-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false`;
+const connectString = `mongodb://${DB_USER}:${DB_PASSWORD}@docdb-2022-10-31-14-43-38.cluster-cpnsiy7hsa9v.sa-east-1.docdb.amazonaws.com:27017/?tls=true&ssl_ca_certs=rds-combined-ca-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false`;
 
 mongoose
 	.connect(connectString)

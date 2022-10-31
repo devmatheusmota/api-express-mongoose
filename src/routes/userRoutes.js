@@ -12,6 +12,8 @@ router.post('/', async (request, response) => {
 		return;
 	} else if (!email) {
 		return response.status(422).json({ error: 'Email is mandatory!' });
+	} else if (!password) {
+		return response.status(422).json({ error: 'Password is mandatory!' });
 	}
 
 	const user = {
